@@ -1,16 +1,5 @@
 <?php
 
-//função verificar se email é valido
-
-function verificar_email($email)
-{
-    if (filter_var($email, FILTER_VALIDATE_EMAIL) == true) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
 //função de cadastro do usuario
 
 function cadastro($nome, $email, $senha)
@@ -41,9 +30,9 @@ function login($email, $senha)
         $_SESSION['nome'] = $usuario['nome'];
         $_SESSION['email'] = $usuario['email'];
 
-        header('location: home.php');
+        echo json_encode(1);
     } else {
-        echo "Email ou senha incorretos!";
+        echo json_encode("Email ou senha incorretos!");
     }
 }
 
@@ -56,9 +45,9 @@ function email_cadastrado($email)
     $sql = mysqli_query($mysqli, "SELECT * FROM usuarios WHERE email = '$email'");
 
     if (mysqli_num_rows($sql) > 0)
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 
 //função atualizar dados
@@ -88,7 +77,6 @@ function atualizar($nome, $email, $senha, $id)
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
         }
-        echo "Dados atualizados com sucesso!";
     }
 }
 
@@ -97,10 +85,46 @@ function atualizar($nome, $email, $senha, $id)
 function deletar()
 {
     require('conexao.php');
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
     $sql = $mysqli->prepare("DELETE FROM usuarios WHERE id=?");
     $sql->execute(array($_SESSION['id']));
 
     session_start();
     session_destroy();
-    header('location: ../index.php');
+    echo json_encode(1);
+}
+
+// Função verifificar se usuario não está logado
+
+function verificar_sessao($i)
+{
+    if ($i == 1) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['id'])) {
+            header('location: login.php');
+        }
+    } else if ($i == 2) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        if (isset($_SESSION['id'])) {
+            header('location: home.php');
+        }
+    } else if ($i == 3) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        if (isset($_SESSION['id'])) {
+            header('location: pages/home.php');
+        }
+    }
 }

@@ -1,11 +1,6 @@
 <?php
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    
-    if(isset($_SESSION['id'])) {
-        header('location: /home/home.php');
-    }
+    require('../controller/function.php');
+    verificar_sessao(2);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,21 +18,23 @@
             <img src="../assets/img/book-woman.svg" class="left-login-image" alt="animation-book">
         </div>
         <div class="right-login">
-        <form class="card-login" method="POST" action="login.php">
+        <form class="card-login" id="login_form" method="POST" action="">
                 <h1>Login</h1>
-                <p style="color: red;" class="erro"><?php include('../controller/valida.php'); ?></p>
                 <div class="textfield">
                     <label for="usuario">Email</label>
-                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="email" id="email_login" placeholder="Email" required>
                 </div>
                 <div class="textfield">
                     <label for="usuario">Senha</label>
-                    <input type="password" name="senha" minlength="8" placeholder="Senha" required>
+                    <input type="password" id="senha_login" minlength="8" placeholder="Senha" required>
                 </div>
                 <button class="btn-login">Login</button>
                 <label class="criar-conta">Ainda não tem conta? <a href="../index.php">Crie agora</a></label>
         </form>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

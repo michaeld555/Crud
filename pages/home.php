@@ -1,5 +1,6 @@
 <?php 
-    require('../controller/validacao.php');
+    require('../controller/function.php');
+    verificar_sessao(1);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

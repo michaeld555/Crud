@@ -1,5 +1,6 @@
 <?php
-    require('../controller/validacao.php');
+    require('../controller/function.php');
+    verificar_sessao(1);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,15 +28,18 @@
             <img src="../assets/img/book-menino.svg" class="left-login-image" alt="animation-book">
         </div>
         <div class="right-login">
-            <form class="card-login" method="POST" action="edit.php">
+            <div class="card-login">
                 <h1>O que deseja fazer? </h1>
-                <button class="btn-login" formaction="edit.php">Atualizar Dados</button>
-                <button style="background: #ff5b42;" class="btn-delete" formaction="../controller/delete.php" >Deletar Conta</button>
-            </form>
+                <button class="btn-login" onclick="window.location='edit.php'">Atualizar Dados</button>
+                <button style="background: #ff5b42;" onclick="deletar()" class="btn-delete">Deletar Conta</button>
+        </div>
         </div>
         <div class="left-login">
             <img src="../assets/img/questions-animate.svg" class="left-login-image" alt="animation-book">
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
