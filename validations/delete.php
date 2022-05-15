@@ -5,6 +5,6 @@
     if(!isset($_SESSION)){
         session_start();
         }
-include('/xampp/htdocs/validations/function.php');
+        require('function.php');
 
-deletar();
+        deletar();

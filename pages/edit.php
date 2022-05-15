@@ -1,12 +1,11 @@
 <?php
-    if(!isset($_SESSION)){
+     if(!isset($_SESSION)){
         session_start();
     }
     
     if(!isset($_SESSION['id'])) {
         header('location: /login/login.php');
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="edit.css" rel="stylesheet">
+    <link href="../assets/css/edit.css" rel="stylesheet">
     <title>Atualizar</title>
 </head>
 <body>
@@ -23,20 +22,20 @@
             <h1 class="logo">Bookland</h1>
             <nav class="header-menu">
                 <ul class="list-itens">
-                    <li><a href="/home/home.php">Home</a></li>
-                    <li><a href="/validations/logout.php">Sair</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="../validations/logout.php">Sair</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <div class="main-login">
         <div class="left-login">
-            <img src="/img/book-menino.svg" class="left-login-image" alt="animation-book">
+            <img src="../assets/img/book-menino.svg" class="left-login-image" alt="animation-book">
         </div>
         <div class="right-login">
             <form class="card-login" method="POST" action="edit.php">
                 <h1>Atualizar Dados</h1>
-                <p style="color: red;"><?php include('/xampp/htdocs/validations/update.php') ?></p>
+                <p style="color: red;"><?php include('../validations/update.php') ?></p>
                 <div class="textfield">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome-edit" placeholder="Nome" value="<?php echo $_SESSION['nome']; ?>" required>
@@ -53,7 +52,7 @@
             </form>
         </div>
         <div class="left-login">
-            <img src="/img/questions-animate.svg" class="left-login-image" alt="animation-book">
+            <img src="../assets/img/questions-animate.svg" class="left-login-image" alt="animation-book">
         </div>
     </div>
 </body>

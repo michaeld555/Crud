@@ -1,5 +1,5 @@
 <?php
-include('/xampp/htdocs/validations/function.php');
+require('function.php');
 
 // Faz as validações, o cadastro e o login do usuario
 
@@ -13,7 +13,7 @@ if(count($_POST) > 0)
         {
             cadastro($_POST["nome"], $_POST["email"], md5($_POST["senha"]));
             setcookie('cadastro', 'true', (time() + (1)));
-            header('location: /login/login.php');
+            header('location: pages/login.php');
         }
     }
     else{

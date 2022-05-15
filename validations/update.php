@@ -1,5 +1,5 @@
 <?php
-    include('/xampp/htdocs/validations/function.php');
+    require('function.php');
 
     // Faz a atualização dos dados do usuario
     
