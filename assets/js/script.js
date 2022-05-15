@@ -18,8 +18,14 @@ $("body").on("submit", "#cadastro_form", function (e) {
     dataType: "json",
   }).done(function (result) {
     if (result == 1) {
-      alert("cadastrado");
-      $("#email_cadastro,#nome_cadastro,#senha_cadastro").val("");
+      Swal.fire({
+        icon: "success",
+        title: "Usuario Cadastrado com sucesso!",
+        showConfirmButton: false,
+      });
+      setTimeout(function () {
+        window.location = "pages/login.php";
+      }, 1700);
     } else {
       Swal.fire({
         icon: "error",
