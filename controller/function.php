@@ -41,7 +41,7 @@ function login($email, $senha)
         $_SESSION['nome'] = $usuario['nome'];
         $_SESSION['email'] = $usuario['email'];
 
-        header('location: ../pages/home.php');
+        header('location: home.php');
     } else {
         echo "Email ou senha incorretos!";
     }

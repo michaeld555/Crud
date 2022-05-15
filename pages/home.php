@@ -1,11 +1,5 @@
 <?php 
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    
-    if(!isset($_SESSION['id'])) {
-        header('location: /login/login.php');
-    }
+    require('../controller/validacao.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,7 +17,7 @@
             <nav class="header-menu">
                 <ul class="list-itens">
                     <li><a href="painel.php">Painel</a></li>
-                    <li><a href="../validations/logout.php">Sair</a></li>
+                    <li><a href="../controller/logout.php">Sair</a></li>
                 </ul>
             </nav>
         </div>

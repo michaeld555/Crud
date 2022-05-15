@@ -4,7 +4,7 @@
     }
     
     if(isset($_SESSION['id'])) {
-        header('location: /home/home.php');
+        header('location: pages/home.php');
     }
 ?>
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
         <div class="right-login">
             <form class="card-login" method="POST" action="index.php">
                 <h1>Cadastre-se</h1>
-                <p class="erro"><?php require('validations/valida.php'); ?></p>
+                <p class="erro"><?php require('controller/valida.php'); ?></p>
                 <div class="textfield">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" placeholder="Nome" required>

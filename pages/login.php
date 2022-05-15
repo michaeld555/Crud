@@ -25,8 +25,7 @@
         <div class="right-login">
         <form class="card-login" method="POST" action="login.php">
                 <h1>Login</h1>
-                <p style="color: red;" class="erro"><?php include('../validations/valida.php'); ?></p>
-                <p style="color: red;""><?php if(isset($_COOKIE['cadastro'])) { echo "Cadastrado com sucesso, faça login para continuar!"; } ?></p>
+                <p style="color: red;" class="erro"><?php include('../controller/valida.php'); ?></p>
                 <div class="textfield">
                     <label for="usuario">Email</label>
                     <input type="email" name="email" placeholder="Email" required>

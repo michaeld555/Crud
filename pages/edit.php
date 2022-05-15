@@ -1,11 +1,5 @@
 <?php
-     if(!isset($_SESSION)){
-        session_start();
-    }
-    
-    if(!isset($_SESSION['id'])) {
-        header('location: /login/login.php');
-    }
+     require('../controller/validacao.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,7 +17,7 @@
             <nav class="header-menu">
                 <ul class="list-itens">
                     <li><a href="home.php">Home</a></li>
-                    <li><a href="../validations/logout.php">Sair</a></li>
+                    <li><a href="../controller/logout.php">Sair</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,7 +29,7 @@
         <div class="right-login">
             <form class="card-login" method="POST" action="edit.php">
                 <h1>Atualizar Dados</h1>
-                <p style="color: red;"><?php include('../validations/update.php') ?></p>
+                <p style="color: red;"><?php include('../controller/update.php') ?></p>
                 <div class="textfield">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome-edit" placeholder="Nome" value="<?php echo $_SESSION['nome']; ?>" required>

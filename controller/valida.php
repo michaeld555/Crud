@@ -12,7 +12,6 @@ if(count($_POST) > 0)
         if(isset($_POST["nome"]) == true)
         {
             cadastro($_POST["nome"], $_POST["email"], md5($_POST["senha"]));
-            setcookie('cadastro', 'true', (time() + (1)));
             header('location: pages/login.php');
         }
     }
